@@ -4,8 +4,8 @@ Ball fall game in C language
 ## Content
 
 * INTRODUCTION
-* NCTIONS USED
-* URCE CODE(C LANGUAGE)
+* FUNCTIONS USED
+* SOURCE CODE(C LANGUAGE)
 * RESULTS
 
 ## Introduction
