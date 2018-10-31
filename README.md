@@ -52,3 +52,16 @@ User can see there past high scores (sorted) via simply pressing “H” on High
 * Getcolor
 * Strncpy
 * Sprintf
+
+
+![image](https://user-images.githubusercontent.com/42575795/47789306-3ca3a780-dd3a-11e8-8910-125d1c988177.png)
+
+
+![image](https://user-images.githubusercontent.com/42575795/47789335-51803b00-dd3a-11e8-891b-c219edd5977c.png)
+
+
+![image](https://user-images.githubusercontent.com/42575795/47789357-60ff8400-dd3a-11e8-98e2-20bd96d9b2b3.png)
+
+
+![image](https://user-images.githubusercontent.com/42575795/47789423-7ecce900-dd3a-11e8-8855-a4e2e744545f.png)
+
