@@ -20,19 +20,19 @@ Ballfall is a game written in 'C' language
 
 ### Loading view
 
-![LANDING_PAGE](LANDING_PAGE.png)
+![LANDING_PAGE](/img/LANDING_PAGE.png)
 
 ### Home view
 
-![HOME_PAGE](HOME_PAGE.png)
+![HOME_PAGE](/img/HOME_PAGE.png)
 
 ### PlayingGame view
 
-![GAME_PAGE](GAME_PAGE.png)
+![GAME_PAGE](/img/GAME_PAGE.png)
 
 ### Score view
 
-![SCORE_PAGE](SCORE_PAGE.png)
+![SCORE_PAGE](/img/SCORE_PAGE.png)
 
 
 ## :raised_hand: Contributing
