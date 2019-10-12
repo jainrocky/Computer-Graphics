@@ -12,6 +12,24 @@ Ballfall is a game written in 'C' language
 
 * Now press `CTRL + F9` for compile and run Hurray! you are ready to rock :rocket:
 
+## Overview
+
+### Loading view
+
+![LANDING_PAGE](LANDING_PAGE.png)
+
+### Home view
+
+![HOME_PAGE](HOME_PAGE.png)
+
+### PlayingGame view
+
+![GAME_PAGE](GAME_PAGE.png)
+
+### Score view
+
+![SCORE_PAGE](SCORE_PAGE.png)
+
 
 ## :raised_hand: Contributing
 
