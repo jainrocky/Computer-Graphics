@@ -47,7 +47,7 @@ Please make sure to add your name and github profile link in [Contributors.md](C
 
 Thanks to all the people who have improved this repository!
 
-<a href="https://github.com/jainrocky/Computer-Graphics/graphs/contributors">
+<a href="https://github.com/jainrocky/Computer-Graphics/blob/master/Contributors.md">
   <img src="https://contributors-img.firebaseapp.com/image?repo=jainrocky/Computer-Graphics" />
 </a>
 
