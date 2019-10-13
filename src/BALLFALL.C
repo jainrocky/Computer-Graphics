@@ -711,13 +711,9 @@ void frame2()
 //639 479
 void main()
 {
-    // FILE *p;
-    //  p=fopen("scoresheet","w");
-    // fclose(p);
 
     graph();
     mainFrame();
     frame2();
-    //highScoreFrame();
     getch();
 }
