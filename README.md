@@ -43,6 +43,14 @@ To follow the guidelines, refer to [Contributing.md](CONTRIBUTING.md)
 
 Please make sure to add your name and github profile link in [Contributors.md](Contributors.md) 
 
+## :star: Contributors
+
+Thanks to all the people who have improved this repository!
+
+<a href="https://github.com/jainrocky/Computer-Graphics/graphs/contributors">
+  <img src="https://contributors-img.firebaseapp.com/image?repo=jainrocky/Computer-Graphics" />
+</a>
+
 
 ## :page_facing_up: License
 
