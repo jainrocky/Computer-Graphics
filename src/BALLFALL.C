@@ -626,16 +626,16 @@ void startGame()
                 }
                 else
                     goto notlisten;
-            } //if END || if(t)
-            else if (ch == 'a' || ch == 'A' /*&& kbhit()*/) {
-                //dir='L';
+            }
+            else if (ch == 'a' || ch == 'A'  {
+
                 moveBall('L');
             }
-            else if (ch == 'd' || ch == 'D' /*&& kbhit()*/) {
+            else if (ch == 'd' || ch == 'D'  {
                 moveBall('R');
-                //dir='R';
+
             }
-        } //kbhit if end
+        }
 
         if (isBallOnObject(&objects[pos])) {
             dir = 'U';
@@ -651,7 +651,7 @@ void startGame()
             cleardevice();
             frame2();
         }
-    } //while end
+    }
 }
 
 void optionHit()
@@ -708,7 +708,7 @@ void frame2()
     setcolor(WHITE);
     createOptions();
 }
-//639 479
+
 void main()
 {
 
