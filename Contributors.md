@@ -4,3 +4,4 @@
 - [Nicolás Buitrago](https://github.com/nicbuitr)
 - [Aliyu Israel Adavize](https://github.com/AdavizeTheFirst)
 - [Amir Ali](https://github.com/AmirQadir)
+- [Elton Glenvill Pinto](https://github.com/eltonpinto156)
