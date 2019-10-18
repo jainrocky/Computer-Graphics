@@ -418,7 +418,7 @@ void saveDialogBox()
     bar(halfx - 30, halfy + 70, halfx + 30, halfy + 90);
     setcolor(2);
     outtextxy(halfx - 25, halfy + 77, "SAVE(;)");
-    //save button end
+
     i = -1;
     setcolor(BLACK);
     while ((ch = getch()) != ';') {
@@ -437,7 +437,7 @@ void saveDialogBox()
     }
     fseek(savescore, 0, SEEK_END);
     temp.score = currscore;
-    //strncpy(s.name,currname,i+1);
+
     fwrite(&temp, 1, sizeof(Score), savescore);
     fclose(savescore);
 }
@@ -552,7 +552,7 @@ int isBallOnObject(Object* object)
 
 void changeTopMost(Object* topmost, int* pos)
 {
-    int k; // = *pos;
+    int k;
     if ((topmost->top + 2) < bally) {
         *pos = (*pos + 1) % 10;
         if (topmost->color == BROWN)
@@ -616,7 +616,7 @@ void startGame()
                     saveDialogBox();
                     cleardevice();
                     frame2();
-                } //dialog box
+                }
                 else if (ch == 'n' || ch == 'N') {
                     cleardevice();
                     frame2();
@@ -626,16 +626,16 @@ void startGame()
                 }
                 else
                     goto notlisten;
-            } //if END || if(t)
-            else if (ch == 'a' || ch == 'A' /*&& kbhit()*/) {
-                //dir='L';
+            }
+            else if (ch == 'a' || ch == 'A')  {
+
                 moveBall('L');
             }
-            else if (ch == 'd' || ch == 'D' /*&& kbhit()*/) {
+            else if (ch == 'd' || ch == 'D' ) {
                 moveBall('R');
-                //dir='R';
+
             }
-        } //kbhit if end
+        }
 
         if (isBallOnObject(&objects[pos])) {
             dir = 'U';
@@ -651,7 +651,7 @@ void startGame()
             cleardevice();
             frame2();
         }
-    } //while end
+    }
 }
 
 void optionHit()
@@ -708,7 +708,7 @@ void frame2()
     setcolor(WHITE);
     createOptions();
 }
-//639 479
+
 void main()
 {
 
