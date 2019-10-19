@@ -38,7 +38,7 @@ Ballfall is a game written in 'C' language
 
 ### About Us view
 
-![SCORE_PAGE](D:/Codes/hacktoberfest/Computer-Graphics/img/ABOUT_US_PAGE.png)
+![SCORE_PAGE](/img/ABOUT_US_PAGE.png)
 
 ## :raised_hand: Contributing
 
