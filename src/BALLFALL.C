@@ -34,6 +34,7 @@ int level = 1;
 
 void drawPrevLetter();
 void frame2();
+void drawObject(Object*);
 
 void graph()
 {
@@ -497,8 +498,6 @@ void intialiseObject(Object* objects, int count)
             (objects + i)->color = BROWN;
     }
 }
-
-void drawObject(Object*);
 
 void moveObject(Object* object)
 {
