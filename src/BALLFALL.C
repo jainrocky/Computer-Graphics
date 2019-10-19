@@ -32,8 +32,6 @@ int speed;
 int currscore = 0;
 int level = 1;
 
-void drawPrevLetter();
-void frame2();
 
 void graph()
 {
