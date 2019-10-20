@@ -35,6 +35,11 @@ Ballfall is a game written in 'C' language
 ![SCORE_PAGE](/img/SCORE_PAGE.png)
 
 
+
+### About Us view
+
+![SCORE_PAGE](/img/ABOUT_US_PAGE.png)
+
 ## :raised_hand: Contributing
 
 Contributions are always welcomed. :smiley: Feel free to raise new issues, file new PRs and star and fork this repo! :wink:
