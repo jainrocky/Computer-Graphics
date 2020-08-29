@@ -60,4 +60,7 @@ Thanks to all the people who have improved this repository!
 
 ## :page_facing_up: License
 
-MIT
+[MIT License](LICENSE)
+
+
+
