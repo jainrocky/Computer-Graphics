@@ -3,17 +3,19 @@
 #include <graphics.h>
 #include <string.h>
 #include <dos.h>
-typedef struct {
+typedef struct
+{
     char name[30];
     int score;
 } Score;
 
-typedef struct {
+typedef struct
+{
     int left, top, right;
     int color;
 } Object;
 
-FILE* savescore;
+FILE *savescore;
 int true = 1;
 int false = 0;
 int ballx, bally, brad = 10;
@@ -34,7 +36,7 @@ int level = 1;
 
 void drawPrevLetter();
 void frame2();
-void drawObject(Object*);
+void drawObject(Object *);
 
 void graph()
 {
@@ -45,10 +47,11 @@ void graph()
     halfy = maxy / 2;
     halfx = maxx / 2;
 }
-void drawNextLetter(int x, int y, char* draw)
+void drawNextLetter(int x, int y, char *draw)
 {
     int i;
-    for (i = 10; i > 4 && draw != 32; i--) {
+    for (i = 10; i > 4 && draw != 32; i--)
+    {
         drawPrevLetter();
         settextstyle(7, 0, i);
         outtextxy(x, y, draw);
@@ -60,7 +63,8 @@ void drawNextLetter(int x, int y, char* draw)
 void drawPrevLetter()
 {
     int i;
-    if (done > 0) {
+    if (done > 0)
+    {
         strncpy(str, title, done);
         settextstyle(7, 0, 5);
         outtextxy(200, halfy - 100, str);
@@ -94,7 +98,8 @@ void showProgressBar()
     setfillstyle(2, 6);
     settextstyle(2, 0, 6);
     setcolor(2);
-    for (i = 0; i < 141; i++) {
+    for (i = 0; i < 141; i++)
+    {
         sprintf(str, "%d %", (i * 100) / 140);
         bar(halfx - 140, halfy + 40, halfx + i, halfy + 70);
         outtextxy(halfx - 5, halfy + 45, str);
@@ -154,25 +159,29 @@ void EXIT(int isselected)
 
 void setSelected(int id)
 {
-    if (id == 1) {
+    if (id == 1)
+    {
         NEWGAME(1);
         HIGHSCORE(0);
         ABOUT(0);
         EXIT(0);
     }
-    if (id == 2) {
+    if (id == 2)
+    {
         NEWGAME(0);
         HIGHSCORE(1);
         ABOUT(0);
         EXIT(0);
     }
-    if (id == 3) {
+    if (id == 3)
+    {
         NEWGAME(0);
         HIGHSCORE(0);
         ABOUT(1);
         EXIT(0);
     }
-    if (id == 4) {
+    if (id == 4)
+    {
         NEWGAME(0);
         HIGHSCORE(0);
         ABOUT(0);
@@ -184,14 +193,17 @@ void optionSelectedListner()
     char item;
     int RUN = 1;
     setSelected(optionid);
-    while (RUN) {
+    while (RUN)
+    {
     notanoption:
         item = getch();
-        if (item == 'w' || item == 'W') {
+        if (item == 'w' || item == 'W')
+        {
             if (optionid > 1)
                 --optionid;
         }
-        else if (item == 'S' || item == 's') {
+        else if (item == 'S' || item == 's')
+        {
             if (optionid < 4)
                 ++optionid;
         }
@@ -204,12 +216,12 @@ void optionSelectedListner()
 }
 void aboutFrame()
 {
-    int back[] = { 30, 459,
-        40, 449,
-        160, 449,
-        160, 469,
-        40, 469,
-        30, 459 };
+    int back[] = {30, 459,
+                  40, 449,
+                  160, 449,
+                  160, 469,
+                  40, 469,
+                  30, 459};
     char ch;
     settextstyle(3, 0, 5);
     setcolor(14);
@@ -222,7 +234,8 @@ void aboutFrame()
     settextstyle(1, 0, 1);
     setcolor(10);
     outtextxy(60, 447, "BACK (B)");
-    while (true) {
+    while (true)
+    {
         ch = getch();
         if (ch == 'b' || ch == 'B')
             break;
@@ -232,32 +245,36 @@ void aboutFrame()
 }
 void highScoreFrame()
 {
-    FILE* sheet;
+    FILE *sheet;
     int i, j, y = 120, k = -1;
-    Score s[50], temp = { "", 0 };
-    int roll[] = { 150, 95,
-        160, 100,
-        480, 100,
-        490, 95,
-        490, 115,
-        480, 110,
-        160, 110,
-        150, 115,
-        150, 95 };
-    int back[] = { 30, 459,
-        40, 449,
-        160, 449,
-        160, 469,
-        40, 469,
-        30, 459 };
+    Score s[50], temp = {"", 0};
+    int roll[] = {150, 95,
+                  160, 100,
+                  480, 100,
+                  490, 95,
+                  490, 115,
+                  480, 110,
+                  160, 110,
+                  150, 115,
+                  150, 95};
+    int back[] = {30, 459,
+                  40, 449,
+                  160, 449,
+                  160, 469,
+                  40, 469,
+                  30, 459};
     char ch;
     sheet = fopen("scoresheet", "rb");
-    while (fread(&temp, 1, sizeof(Score), sheet)) {
+    while (fread(&temp, 1, sizeof(Score), sheet))
+    {
         s[++k] = temp;
     }
-    for (i = 0; i < k + 1; i++) {
-        for (j = 0; j < k + 1; j++) {
-            if (s[i].score > s[j].score) {
+    for (i = 0; i < k + 1; i++)
+    {
+        for (j = 0; j < k + 1; j++)
+        {
+            if (s[i].score > s[j].score)
+            {
                 temp = s[i];
                 s[i] = s[j];
                 s[j] = temp;
@@ -279,19 +296,22 @@ void highScoreFrame()
     outtextxy(60, 447, "BACK (B)");
 
     setfillstyle(8, 10);
-    for (i = 150; i < 446; i++) {
+    for (i = 150; i < 446; i++)
+    {
         bar(200, 100, 440, i);
         delay(1);
     }
     settextstyle(1, 0, 2);
     setcolor(WHITE);
-    for (i = 0; i < k + 1; i++, y -= 30) {
+    for (i = 0; i < k + 1; i++, y -= 30)
+    {
         outtextxy(halfx - 100, halfy - y, s[i].name);
         sprintf(str, "%d", s[i].score);
         outtextxy(halfx + 80, halfy - y, str);
     }
     fclose(sheet);
-    while (true) {
+    while (true)
+    {
         ch = getch();
         if (ch == 'b' || ch == 'B')
             break;
@@ -317,14 +337,14 @@ void scoreCardWindow()
 void intializeWindow()
 {
     int nowcolor;
-    int left[] = { 485, 379,
-        525, 359,
-        525, 399,
-        485, 379 };
-    int right[] = { 575, 379,
-        535, 359,
-        535, 399,
-        575, 379 };
+    int left[] = {485, 379,
+                  525, 359,
+                  525, 399,
+                  485, 379};
+    int right[] = {575, 379,
+                   535, 359,
+                   535, 399,
+                   575, 379};
     setcolor(WHITE);
     gameWindow();
     setfillstyle(1, 8);
@@ -352,8 +372,10 @@ void searchHighScore()
 {
     Score temp;
     savescore = fopen("scoresheet", "r");
-    while (fread(&temp, 1, sizeof(Score), savescore)) {
-        if (temp.score > hscore) {
+    while (fread(&temp, 1, sizeof(Score), savescore))
+    {
+        if (temp.score > hscore)
+        {
             hscore = temp.score;
             strcpy(hname, temp.name);
         }
@@ -365,7 +387,8 @@ void quitDialogBox()
     int i;
     setfillstyle(1, 12);
     //dialog box
-    for (i = 50; i < 150; i++) {
+    for (i = 50; i < 150; i++)
+    {
         bar(halfx - i, halfy + 50 - i, halfx + i, halfy - 50 + i);
         delay(2);
     }
@@ -398,7 +421,7 @@ void saveDialogBox()
 {
     int i;
     int currpos = 125;
-    Score temp = { "", 0 };
+    Score temp = {"", 0};
     char ch, curr[1];
     setfillstyle(1, 12);
     savescore = fopen("scoresheet", "ab+");
@@ -422,14 +445,17 @@ void saveDialogBox()
 
     i = -1;
     setcolor(BLACK);
-    while ((ch = getch()) != ';') {
-        if (ch == 8 && currpos < 125) {
+    while ((ch = getch()) != ';')
+    {
+        if (ch == 8 && currpos < 125)
+        {
             temp.name[i--] = 32;
             currpos += 10;
             setfillstyle(1, WHITE);
             bar(halfx - currpos, halfy - 10, halfx + 130, halfy + 10);
         }
-        else if (ch != 8) {
+        else if (ch != 8)
+        {
             temp.name[++i] = ch;
             sprintf(curr, "%c", ch);
             outtextxy(halfx - currpos, halfy - 4, curr);
@@ -474,7 +500,8 @@ void gameOverDialog()
 {
     int i;
     setfillstyle(1, 12);
-    for (i = 50; i <= 100; i++) {
+    for (i = 50; i <= 100; i++)
+    {
         bar(220 - i, halfy - 40, 220 + i, halfy + 40);
         delay(10);
     }
@@ -483,11 +510,12 @@ void gameOverDialog()
     settextstyle(6, 0, 4);
     outtextxy(145, halfy - 10, "Game Over!");
 }
-void intialiseObject(Object* objects, int count)
+void intialiseObject(Object *objects, int count)
 {
     int i = 0;
     int randpos;
-    for (i = 0; i < count; i++) {
+    for (i = 0; i < count; i++)
+    {
         randpos = rand() % 15;
         if (randpos < 0)
             randpos *= -1;
@@ -499,17 +527,20 @@ void intialiseObject(Object* objects, int count)
     }
 }
 
-void moveObject(Object* object)
+void moveObject(Object *object)
 {
     int newcolor;
-    if (object->top > maxy) {
+    if (object->top > maxy)
+    {
         object->top--;
         return;
     }
-    else if (object->top > 0 && object->top <= maxy) {
+    else if (object->top > 0 && object->top <= maxy)
+    {
         object->top--;
     }
-    else {
+    else
+    {
         object->top = maxy + 1850;
         newcolor = rand() % 15;
 
@@ -522,7 +553,7 @@ void moveObject(Object* object)
     bar(object->left, object->top, object->right, object->top + 2);
 }
 
-void drawObject(Object* object)
+void drawObject(Object *object)
 {
     int len, l, r;
     len = rand() % 200 - (currscore * 2);
@@ -530,18 +561,20 @@ void drawObject(Object* object)
     if (len < 25)
         len = 25;
     r = l + len;
-    if (l < 2) {
+    if (l < 2)
+    {
         l = 5;
         r = l + len;
     }
-    else if (r > halfx + 98) {
+    else if (r > halfx + 98)
+    {
         r = halfx + 93;
         l = r - len;
     }
     object->left = l;
     object->right = r;
 }
-int isBallOnObject(Object* object)
+int isBallOnObject(Object *object)
 {
     int ydiff = (object->top) - (bally + brad);
     if (ydiff < 2 && ydiff > 0 && ballx < (object->right) && ballx > (object->left))
@@ -549,10 +582,11 @@ int isBallOnObject(Object* object)
     return 0;
 }
 
-void changeTopMost(Object* topmost, int* pos)
+void changeTopMost(Object *topmost, int *pos)
 {
     int k;
-    if ((topmost->top + 2) < bally) {
+    if ((topmost->top + 2) < bally)
+    {
         *pos = (*pos + 1) % 10;
         if (topmost->color == BROWN)
             currscore += 5;
@@ -560,7 +594,8 @@ void changeTopMost(Object* topmost, int* pos)
             currscore += 1;
 
         k = currscore / 10;
-        if (level <= k) {
+        if (level <= k)
+        {
             level++;
             outtextxy(180, halfy, "Level Up!");
             delay(200);
@@ -575,7 +610,7 @@ void startGame()
     int uplevelafter = 0;
     Object objects[10];
     int pos = 0;
-    Object* topmost = &objects[pos];
+    Object *topmost = &objects[pos];
     char dir = 'D';
     int i = 0;
     int xinit, yinit = 50;
@@ -598,51 +633,61 @@ void startGame()
     drawCircle(xinit, yinit);
     for (i = 0; i < 10; i++)
         drawObject(&objects[i]);
-    while (true) {
+    while (true)
+    {
         changeTopMost(&objects[pos], &pos);
         moveBall(dir);
-        for (i = 0; i < 10; i++) {
+        for (i = 0; i < 10; i++)
+        {
             moveObject(&objects[i]);
         }
         delay(speed);
-        if (kbhit()) {
+        if (kbhit())
+        {
             ch = getch();
-            if (ch == 't' || ch == 'T') {
+            if (ch == 't' || ch == 'T')
+            {
                 quitDialogBox();
             notlisten:
                 ch = getch();
-                if (ch == 'y' || ch == 'Y') {
+                if (ch == 'y' || ch == 'Y')
+                {
                     saveDialogBox();
                     cleardevice();
                     frame2();
                 }
-                else if (ch == 'n' || ch == 'N') {
+                else if (ch == 'n' || ch == 'N')
+                {
                     cleardevice();
                     frame2();
                 }
-                else if (ch == 'c' || ch == 'C') {
+                else if (ch == 'c' || ch == 'C')
+                {
                     intializeWindow();
                 }
                 else
                     goto notlisten;
             }
-            else if (ch == 'a' || ch == 'A')  {
+            else if (ch == 'a' || ch == 'A')
+            {
 
                 moveBall('L');
             }
-            else if (ch == 'd' || ch == 'D' ) {
+            else if (ch == 'd' || ch == 'D')
+            {
                 moveBall('R');
-
             }
         }
 
-        if (isBallOnObject(&objects[pos])) {
+        if (isBallOnObject(&objects[pos]))
+        {
             dir = 'U';
         }
         else
             dir = 'D';
 
-        if (isGameOver()) {
+        if (isGameOver())
+        {
             gameOverDialog();
             delay(1000);
             intializeWindow();
@@ -656,7 +701,8 @@ void startGame()
 void optionHit()
 {
     cleardevice();
-    if (optionid == 4) {
+    if (optionid == 4)
+    {
         closegraph();
         exit(0);
     }
@@ -670,20 +716,20 @@ void optionHit()
 
 void createOptions()
 {
-    int enter[] = { 609, 459,
-        599, 449,
-        500, 449,
-        500, 469,
-        599, 469,
-        609, 459 };
-    int up[] = { 30, 409,
-        70, 409,
-        50, 379,
-        30, 409 };
-    int down[] = { 50, 459,
-        30, 419,
-        70, 419,
-        50, 459 };
+    int enter[] = {609, 459,
+                   599, 449,
+                   500, 449,
+                   500, 469,
+                   599, 469,
+                   609, 459};
+    int up[] = {30, 409,
+                70, 409,
+                50, 379,
+                30, 409};
+    int down[] = {50, 459,
+                  30, 419,
+                  70, 419,
+                  50, 459};
     settextstyle(10, 0, 1);
     NEWGAME(1);
     HIGHSCORE(0);
