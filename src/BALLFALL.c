@@ -517,8 +517,6 @@ void intialiseObject(Object *objects, int count)
     for (i = 0; i < count; i++)
     {
         randpos = rand() % 15;
-        if (randpos < 0)
-            randpos *= -1;
         (objects + i)->top = maxy + 10 + (i * 200);
         if (randpos != 3 && randpos != 0 && randpos != 7)
             (objects + i)->color = randpos;
