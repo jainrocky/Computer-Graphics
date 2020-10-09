@@ -486,7 +486,7 @@ void moveBall(char dir)
         ballx -= 10;
     else if (dir == 'R' && ballx < halfx + 100 - brad - 10)
         ballx += 10;
-    circle(ballx, bally, brad);
+    drawCircle(ballx, bally);
 }
 
 int isGameOver()
@@ -618,8 +618,6 @@ void startGame()
     speed = 25;
     intialiseObject(objects, 10);
     xinit = rand() % (halfx + 100);
-    if (xinit < 0)
-        xinit *= -1;
     if (xinit < brad)
         xinit += brad;
     if (xinit > halfx + 100 - brad)
